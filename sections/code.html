@@ -1,0 +1,26 @@
+<p class="labeled-icon">
+<a href="{{ github_user_url }}"><i class="fa fa-github"></i>jbernhard</a>
+</p>
+
+<div class="row">
+  {% for code in codes %}
+    <div class="one-third column">
+      <h6 class="code-name">{{ code.name }}</h6>
+      <p>{{ code.description.strip() }}</p>
+      <ul class="fa-ul">
+        <li>
+          <i class="fa-li fa fa-github"></i>
+          <a href="https://github.com/{{ code.github }}">
+            {{ code.github }}
+          </a>
+        </li>
+        <li>
+          <i class="fa-li fa fa-book"></i>
+          <a href="{{ code.docs.url }}">
+            {{ code.docs.link_text }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  {% endfor %}
+</div>

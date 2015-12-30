@@ -1,0 +1,9 @@
+<div class="row">
+  {% for talk in talks %}
+    <div class="one-half column">
+      <h6>{{ talk.title }}</h6>
+      <p>{{ talk.conference }}</p>
+    </div>
+  {% endfor %}
+</div>
+

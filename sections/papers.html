@@ -1,0 +1,33 @@
+<p>
+<a href="https://inspirehep.net/search?p=exactauthor%3AJ.E.Bernhard.1">Inspire</a>
+</p>
+
+<div class="row">
+  {% for paper in papers %}
+    <div class="one-half column paper">
+      <h6 class="paper-title">{{ paper.title|replace('\n', ' ') }}</h6>
+      <p class="paper-author">{{ paper.author }}</p>
+      <p class="paper-description">{{ paper.description }}</p>
+      <ul class="fa-ul">
+        <li>
+          <i class="fa-li fa fa-file-text-o"></i>
+          <a href="http://dx.doi.org/{{ paper.doi }}">
+            {{ paper.journal }} {{ paper.volume }} ({{ paper.year }})
+          </a>
+        </li>
+        <li>
+          <i class="fa-li fa fa-file-pdf-o"></i>
+          <a href="http://arxiv.org/pdf/{{ paper.eprint }}.pdf">
+            arXiv:{{ paper.eprint }} [{{ paper.primaryclass }}]
+          </a>
+        </li>
+        <li>
+          <i class="fa-li fa fa-github"></i>
+          <a href="https://github.com/{{ paper.github }}">
+            {{ paper.github }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  {% endfor %}
+</div>

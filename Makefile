@@ -2,26 +2,25 @@ builddir ?= build
 
 index = index.html
 html = $(builddir)/$(index)
-
-scss = css/main.scss
-css = $(builddir)/main.css
-
+css = $(builddir)/main.min.css
 img = $(builddir)/img
+targets = $(html) $(css) $(img)
 
-
-all: $(builddir) $(html) $(css) $(img)
+all: $(builddir) $(targets)
 
 $(builddir):
 	mkdir -p $(builddir)
 
-$(html): $(index)
-	./render-template $(index) > $(html)
+$(html): $(index) sections/*.html data/*
+	./render-template > $(html)
 
 $(css): css/*css
-	sass --style compressed $(scss) > $(css)
+	sass css/main.scss | cat css/normalize.css - | cleancss > $(css)
 
 $(img):
-	@rsync -ru --delete --info=name1,del img $(builddir)/
+	@rsync -rui --delete --info=name1,del img $(builddir)/
 
+clean:
+	@rm -rv $(targets)
 
-.PHONY: all $(img)
+.PHONY: all $(img) clean

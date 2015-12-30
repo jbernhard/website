@@ -1,14 +1,131 @@
-@import "normalize";
+/* jbernhard custom styles */
+
+@import "config";
 @import "skeleton";
 
-.container {
-  text-align: center;
+.full-width {
+  width: 100%;
+}
+
+.dark-background {
+  background-color: hsl($theme-hue, 45, 25);
+  color: grey(90);
+  a {
+    color: grey(90);
+  }
+}
+
+.light-background {
+  background-color: hsl($theme-hue, 5, 95);;
+}
+
+a .fa {
+  color: $text-color;
+}
+
+.nav-wrapper {
+  a {
+    text-decoration: none;
+  }
+
+  .nav-title {
+    margin: 0;
+    text-align: center;
+  }
+
+  nav {
+    display: none;
+  }
+
 }
 
 header {
-  margin-top: 50%;
+  text-align: center;
+  font-size: 125%;
+  padding: 1rem 0;
+
+  li {
+    list-style-type: none;
+  }
 }
 
-section {
-  margin-top: 5rem;
+@include larger-than('tablet') {
+  $nav-height: 5rem;
+
+  .nav-wrapper {
+    height: $nav-height;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+    .nav-title {
+      float: left;
+      line-height: $nav-height;
+    }
+
+    nav {
+      display: block;
+      float: right;
+      a {
+        display: inline-block;
+        font-size: 2rem;
+        line-height: $nav-height;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      a + a {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  header {
+    margin-top: $nav-height;
+    padding: 4rem 0;
+  }
+}
+
+// section {
+//   @include respond('margin-top', 2rem, ('phablet': 3rem));
+//   // margin-top: 1rem;
+//   // @include larger-than('phablet') {
+//   //   margin-top: 3rem;
+//   // }
+//   // @include larger-than('phablet') {
+//   //   margin-top: 3rem;
+//   // }
+// }
+
+.paper p {
+  margin-bottom: 0.5rem;
+}
+
+.paper-title, .code-name {
+  font-weight: 600;
+  margin: 0;
+}
+
+.paper-description {
+  font-style: italic;
+}
+
+footer {
+  border-top: 1px solid grey(75);
+  p {
+    text-align: center;
+    font-size: 85%;
+    margin: 0.75rem 0;
+  }
+}
+
+.labeled-icon {
+  font-size: 110%;
+  i.fa {
+    margin-right: 0.4rem;
+  }
+}
+
+.icon + .icon {
+  margin-left: 0.4rem;
 }

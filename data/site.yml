@@ -1,0 +1,58 @@
+header:
+  - fa_class: fa-graduation-cap
+    lines:
+      - grad student
+      - Duke physics
+
+  - fa_class: fa-flask
+    lines:
+      - nuclear physics
+      - relativistic heavy-ion collisions
+
+  - fa_class: fa-code
+    lines:
+      - computational modeling
+      - Bayesian parameter extraction
+
+codes:
+  - name: T<sub>R</sub>ENTo
+    github: Duke-QCD/trento
+    docs:
+      url: http://qcd.phy.duke.edu/trento
+      link_text: qcd.phy.duke.edu/trento
+    description: >
+      heavy-ion collision initial condition model
+
+  - name: freestream
+    github: Duke-QCD/freestream
+    docs:
+      url: https://github.com/Duke-QCD/freestream#readme
+      link_text: readme
+    description: >
+      freestreaming and Landau matching
+
+  - name: hic
+    github: Duke-QCD/hic
+    docs:
+      url: http://qcd.phy.duke.edu/hic
+      link_text: qcd.phy.duke.edu/hic
+    description: >
+      Python tools for analyzing heavy-ion collision simulation data.
+
+talks:
+  - title: Bayesian characterization of the initial state and QGP medium
+    poster: true
+    conference: Quark Matter 2015
+    location: Kobe, Japan
+    date: September 29, 2015
+    github: jbernhard/qm2015
+
+  - title: >
+      Quantifying properties of hot and dense QCD matter
+      through systematic model-to-data comparison
+    poster: false
+    conference: Institute for Nuclear Theory workshop
+    location: University of Washington, Seattle, WA
+    date: July 14, 2015
+    github: jbernhard/mtd-paper/tree/int
+
