@@ -15,12 +15,19 @@ $(html): $(index) sections/*.html data/*
 	./render-template > $(html)
 
 $(css): css/*css
-	sass css/main.scss | cat css/normalize.css - | cleancss > $(css)
+	sass --cache-location $(XDG_RUNTIME_DIR)/sass-cache css/main.scss | \
+		cat css/normalize.css - | \
+		postcss \
+			--use autoprefixer --autoprefixer.browsers "last 2 versions, > 5%" \
+			--use cssnano > $(css)
 
 $(img):
 	@rsync -rui --delete --info=name1,del img $(builddir)/
 
-clean:
-	@rm -rv $(targets)
+watch: all
+	livereloadx --static $(builddir)
 
-.PHONY: all $(img) clean
+clean:
+	rm -rfv $(targets)
+
+.PHONY: all $(img) watch clean
