@@ -1,10 +1,26 @@
 /* jbernhard custom styles */
 
-@import "config";
-@import "skeleton";
+@import 'config';
+@import 'skeleton';
 
-.full-width {
-  width: 100%;
+// global paragraph formatting
+p {
+  text-align: justify;
+}
+
+// fix font-awesome list vertical alignment
+// https://github.com/FortAwesome/Font-Awesome/issues/2288
+.fa-li {
+    top: auto;
+    line-height: inherit;
+}
+
+/*
+ * utility classes
+ */
+
+.extra-space-right {
+  margin-right: 0.5rem;
 }
 
 .dark-background {
@@ -16,36 +32,59 @@
 }
 
 .light-background {
-  background-color: hsl($theme-hue, 5, 95);;
+  background-color: hsl($theme-hue, 5, 95);
 }
 
-a .fa {
-  color: $text-color;
-}
+/*
+ * page structure
+ */
 
 .nav-wrapper {
+  text-align: center;
+  line-height: 2;
   a {
     text-decoration: none;
   }
-
   .nav-title {
     margin: 0;
-    text-align: center;
   }
-
   nav {
-    display: none;
+    a {
+      font-size: 1.6rem;
+      display: inline-block;
+      width: 20%;
+    }
   }
 
 }
 
 header {
   text-align: center;
-  font-size: 125%;
-  padding: 1rem 0;
-
+  font-size: 1.6rem;
+  @include larger-than('desktop') {
+    font-size: 1.8rem;
+  }
+  line-height: 1.4;
+  .fa {
+    margin-bottom: 0.5rem;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+  }
   li {
-    list-style-type: none;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  .column {
+    margin-bottom: 3rem;
+    &:first-child {
+      margin-top: 3rem;
+    }
+    @include if-grid-enabled {
+      &, &:first-child { margin-top: 4rem; }
+      margin-bottom: 4rem;
+    }
   }
 }
 
@@ -64,10 +103,9 @@ header {
     }
 
     nav {
-      display: block;
       float: right;
       a {
-        display: inline-block;
+        width: auto;
         font-size: 2rem;
         line-height: $nav-height;
         &:hover {
@@ -82,50 +120,90 @@ header {
 
   header {
     margin-top: $nav-height;
-    padding: 4rem 0;
   }
 }
 
-// section {
-//   @include respond('margin-top', 2rem, ('phablet': 3rem));
-//   // margin-top: 1rem;
-//   // @include larger-than('phablet') {
-//   //   margin-top: 3rem;
-//   // }
-//   // @include larger-than('phablet') {
-//   //   margin-top: 3rem;
-//   // }
-// }
+.card {
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
 
-.paper p {
+.card-title {
+  // @at-root &, .card p {
+  //   line-height: 1.4;
+  //   margin-bottom: 0.5rem;
+  // }
+  font-weight: 600;
+  margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
-.paper-title, .code-name {
-  font-weight: 600;
-  margin: 0;
-}
-
-.paper-description {
-  font-style: italic;
-}
-
-footer {
-  border-top: 1px solid grey(75);
-  p {
-    text-align: center;
-    font-size: 85%;
-    margin: 0.75rem 0;
+dl {
+  margin: {
+    top: 0;
+    left: 0;
+    right: 0;
+    // bottom set by skeleton
   }
 }
 
-.labeled-icon {
-  font-size: 110%;
-  i.fa {
-    margin-right: 0.4rem;
+dl.inline {
+  text-align: justify;
+  dt {
+    display: inline;
+    font-weight: 600;
+    margin: 0;
+  }
+  dd {
+    display: inline;
+    margin: 0 0 0 1rem;
+  }
+  dd + dt::before {
+    content: "";
+    display: block;
+    height: 1rem;
+  }
+}
+
+ul.inline {
+  display: inline;
+  margin: 0;
+  list-style: none;
+  li {
+    display: inline;
+    margin: 0;
+    &:not(last-child)::after {
+      content: ", ";
+    }
+    &:last-child::after {
+      content: ".";
+    }
+  }
+}
+
+#self-photo {
+  width: 100%;
+  max-width: 25rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  background-clip: border-box;
+  @include if-grid-enabled {
+    float: right;
+    margin-left: 1.5rem;
+    width: 40%;
+  }
+}
+
+footer {
+  font-size: 85%;
+  border-top: 1px solid grey(75);
+  p {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
   }
 }
 
 .icon + .icon {
-  margin-left: 0.4rem;
+  margin-left: 0.3rem;
 }

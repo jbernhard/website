@@ -1,5 +1,33 @@
-<p class="labeled-icon">
-<a href="mailto:{{ email_address }}"><i class="fa fa-envelope-o"></i>{{ email_address }}</a>
+<p>
+<a href="mailto:{{ email_address }}"><i class="fa fa-envelope-o extra-space-right"></i>{{ email_address }}</a>
 </p>
 
-{{ lipsum() }}
+<div class="row">
+  <img id="self-photo" src="img/jbernhard.jpg" alt="photo of Jonah Bernhard">
+  <dl class="inline">
+    <dt>Research</dt>
+    <dd>
+    Relativistic heavy-ion collisions.
+    {{ lipsum(1, html=false, min=80, max=81) }}
+    </dd>
+    <dt>Education</dt>
+    <dd>
+    Fifth-year PhD candidate in the Duke physics department.
+    I plan to defend my dissertation by the end of the year.
+    Previously, I graduated from Swarthmore College in 2011.
+    </dd>
+    <dt>Skills</dt>
+    <dd>
+    <ul class="inline">
+      <li>computational &amp; statistical modeling</li>
+      <li>data science</li>
+      <li>Bayesian parameter extraction &amp; uncertainty quantification</li>
+      <li>parallel &amp; grid computing</li>
+      <li>Python</li>
+      <li>C++</li>
+      <li>Git &amp; open-source software development</li>
+      <li>Linux/Unix shells &amp; system administration</li>
+    </ul>
+    </dd>
+  </dl>
+</div>

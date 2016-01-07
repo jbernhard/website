@@ -1,23 +1,29 @@
-<p class="labeled-icon">
-<a href="{{ github_user_url }}"><i class="fa fa-github"></i>jbernhard</a>
+<p>
+<a href="{{ github_user_url }}"><i class="fa fa-github extra-space-right"></i>jbernhard</a>
 </p>
+
+<p>
+As part of my research, I've developed various software for computational modeling of
+<a href="https://en.wikipedia.org/wiki/High_energy_nuclear_physics">relativistic heavy-ion collisions</a> and
+<a href="https://en.wikipedia.org/wiki/Quark%E2%80%93gluon_plasma">quark-gluon plasma</a>.
+Here are a few highlights:
 
 <div class="row">
   {% for code in codes %}
-    <div class="one-third column">
-      <h6 class="code-name">{{ code.name }}</h6>
+    <div class="one-third column card">
+      <h6 class="card-title">{{ code.name }}</h6>
       <p>{{ code.description.strip() }}</p>
       <ul class="fa-ul">
         <li>
-          <i class="fa-li fa fa-github"></i>
           <a href="https://github.com/{{ code.github }}">
-            {{ code.github }}
+            <i class="fa-li fa fa-github"></i>
+            {{ code.github|replace('/', '/<wbr>') }}
           </a>
         </li>
         <li>
-          <i class="fa-li fa fa-book"></i>
           <a href="{{ code.docs.url }}">
-            {{ code.docs.link_text }}
+            <i class="fa-li fa fa-book"></i>
+            {{ code.docs.link_text|replace('/', '/<wbr>') }}
           </a>
         </li>
       </ul>

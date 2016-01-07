@@ -47,7 +47,7 @@
   box-sizing: border-box; }
 
 /* For devices larger than 400px */
-// jbernhard: replace explicit media query with mixin
+// jbernhard: replace min-width 400px media query with mixin
 @include larger-than('mobile') {
   .container {
     width: 85%;
@@ -55,7 +55,7 @@
 }
 
 /* For devices larger than 550px */
-// jbernhard: replace explicit media query with mixin
+// jbernhard: replace min-width 550px media query with mixin
 @include if-grid-enabled {
   .container {
     width: 80%; }
@@ -132,14 +132,15 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: $text-color; }  // jbernhard: replaced default #222 with variable
+  color: $text-color; }  // jbernhard: replace default #222
 
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 2rem;
+  // jbernhard: change margins from default 0 (top), 2rem (bottom)
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   font-weight: 300; }
 h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
 h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
@@ -149,7 +150,7 @@ h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 
 /* Larger than phablet */
-// jbernhard: replace explicit media query with mixin
+// jbernhard: replace min-width 550px media query with mixin
 @include larger-than('phablet') {
   h1 { font-size: 5.0rem; }
   h2 { font-size: 4.2rem; }
@@ -165,12 +166,17 @@ p {
 
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+// jbernhard:
+//   - replace default color #1EAEDB
+//   - replace default hover color #0FA0CE
+//   - add transition (fade)
+//   - style font-awesome icon links
 a {
-  color: $link-color; }  // jbernhard: replace default #1EAEDB with variable
-/* jbernhard: disable default link hover
-a:hover {
-  color: #0FA0CE; }
-*/
+  color: $link-color;
+  .fa { color: $text-color; }
+  &, .fa { transition: 0.2s; }
+  &:hover { &, & > .fa { color: lighten($link-color, 10); }}
+}
 
 
 /* Buttons
@@ -311,6 +317,7 @@ ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
   font-size: 90%; }
 li {
+  // jbernhard: replace default 1rem
   margin-bottom: 1rem; }
 
 
@@ -363,8 +370,8 @@ table,
 p,
 ul,
 ol,
-form {
-  margin-bottom: 1rem; }  // jbernhard: decreased from default 2.5rem
+form {  // jbernhard: replace default 2.5rem
+  margin-bottom: 1rem; }
 
 
 /* Utilities

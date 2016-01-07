@@ -1,8 +1,31 @@
+<p>
+I have presented my primary research project on Bayesian parameter extraction numerous times around the world.
+These are the most recent:
+</p>
+
 <div class="row">
   {% for talk in talks %}
-    <div class="one-half column">
-      <h6>{{ talk.title }}</h6>
-      <p>{{ talk.conference }}</p>
+    <div class="one-half column card">
+      <h6 class="card-title">{{ talk.title }}</h6>
+      <p>{{ talk.description }}</p>
+      <ul class="fa-ul">
+        <li>
+          <a href="{{ talk.conference.url }}">
+            <i class="fa-li fa fa-map-marker"></i>
+            {{ talk.conference.name }}, {{ talk.location }}
+          </a>
+        </li>
+        <li>
+          <i class="fa-li fa fa-calendar"></i>
+          {{ talk.date }}
+        </li>
+        <li>
+          <a href="https://github.com/{{ talk.github }}">
+            <i class="fa-li fa fa-github"></i>
+            {{ talk.github|replace('/tree/', ':') }}
+          </a>
+        </li>
+      </ul>
     </div>
   {% endfor %}
 </div>

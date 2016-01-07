@@ -4,7 +4,7 @@
 
 $text-color: grey(15);
 $theme-hue: 194;
-$link-color: hsl($theme-hue, 75, 45);  // similar to skeleton default
+$link-color: hsl($theme-hue, 75, 35);  // similar to skeleton default
 
 @function grey($n) {
   @return hsl(0, 0, $n);
@@ -30,7 +30,7 @@ $device-width: (
 }
 
 @mixin if-grid-enabled {
-  @include larger-than('phablet') {
+  @include larger-than('tablet') {
     @content;
   }
 }

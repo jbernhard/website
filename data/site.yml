@@ -21,7 +21,10 @@ codes:
       url: http://qcd.phy.duke.edu/trento
       link_text: qcd.phy.duke.edu/trento
     description: >
-      heavy-ion collision initial condition model
+      Model for the initial conditions of heavy-ion collisions.
+      The name is an homage to Trento, Italy,
+      where my fellow Duke student Scott Moreland and I formulated the idea
+      (it also stands for <i>Reduced Thickness Event-by-event Nuclear Topology</i>).
 
   - name: freestream
     github: Duke-QCD/freestream
@@ -29,7 +32,9 @@ codes:
       url: https://github.com/Duke-QCD/freestream#readme
       link_text: readme
     description: >
-      freestreaming and Landau matching
+      Implementation of free-streaming for the &quot;pre-equilibrium&quot; stage
+      of the collision, after the initial condition but before quark-gluon plasma
+      formation.
 
   - name: hic
     github: Duke-QCD/hic
@@ -37,22 +42,33 @@ codes:
       url: http://qcd.phy.duke.edu/hic
       link_text: qcd.phy.duke.edu/hic
     description: >
-      Python tools for analyzing heavy-ion collision simulation data.
+      Collection of tools for analyzing model simulation data.
+      My idea is to have the heavy-ion physics community contribute to and use
+      this package for common analysis tasks.
+      While it has not taken off, I regularly use it for data analysis in my research.
 
 talks:
   - title: Bayesian characterization of the initial state and QGP medium
-    poster: true
-    conference: Quark Matter 2015
+    conference:
+      name: Quark Matter 2015
+      url: http://qm2015.riken.jp
     location: Kobe, Japan
     date: September 29, 2015
     github: jbernhard/qm2015
+    description: >
+      My poster for Quark Matter 2015, the preeminent conference in heavy-ion physics.
+      Presents an updated Bayesian analysis with more parameters and improved physics models,
+      including our initial condition model T<sub>R</sub>ENTo.
 
-  - title: >
-      Quantifying properties of hot and dense QCD matter
-      through systematic model-to-data comparison
-    poster: false
-    conference: Institute for Nuclear Theory workshop
-    location: University of Washington, Seattle, WA
-    date: July 14, 2015
-    github: jbernhard/mtd-paper/tree/int
+  - title: Bayesian methods for constraining initial conditions and viscosity
+    conference:
+      name: 2015 RHIC &amp; AGS Users' Meeting
+      url: https://www.bnl.gov/aum2015
+    location: Brookhaven National Lab
+    date: June 9, 2015
+    github: jbernhard/mtd-paper/tree/aum
+    description: >
+      Presentation of results from my paper
+      <i>Quantifying properties of hot and dense QCD matter
+      through systematic model-to-data comparison</i>
 

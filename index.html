@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{{ full_name }}</title>
-  <meta name="description" content="">
+  <meta name="description" content="Jonah Bernhard is a physics graduate student, data scientist, and developer at Duke University.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% for css in [
@@ -40,7 +40,7 @@
 ] %}
 
 <body>
-  <div class="nav-wrapper full-width dark-background">
+  <div class="nav-wrapper u-full-width dark-background">
     <div class="container">
       <h2 class="nav-title"><a href="#">{{ full_name }}</a></h2>
       <nav>
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <header class="full-width light-background">
+  <header class="u-full-width light-background">
     <div class="container">
       <div class="row">
         {% for item in header %}
@@ -78,7 +78,7 @@
 
     <footer>
       <p>
-      Copyright &copy;{{ '%Y'|strftime }} {{ full_name }}<br>
+      &copy;{{ '%Y'|strftime }} {{ full_name }}<br>
       <a href="{{ github_user_url }}/website">Built</a> on
       <a href="http://getskeleton.com">Skeleton</a> with a custom
       <a href="http://jinja.pocoo.org">Jinja</a> template<br>
