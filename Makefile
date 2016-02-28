@@ -25,7 +25,7 @@ $(img):
 	@rsync -rui --delete --info=name1,del img $(builddir)/
 
 watch: all
-	livereloadx --static $(builddir)
+	livereloadx --static $(builddir)/
 
 clean:
 	rm -rfv $(targets)
