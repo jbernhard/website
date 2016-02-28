@@ -1,10 +1,13 @@
 <p>
-<a href="mailto:{{ email_address }}"><i class="fa fa-envelope-o extra-space-right"></i>{{ email_address }}</a>
+  <a href="mailto:{{ email_address }}">
+    <i class="fa fa-envelope-o space-right"></i>{{ email_address }}
+  </a>
 </p>
 
-<div class="row">
-  <img id="self-photo" src="img/jbernhard.jpg" alt="photo of Jonah Bernhard">
-  <dl class="inline">
+<div class="clear">
+  <img class="about-photo" src="img/jbernhard.jpg" alt="photo of Jonah Bernhard">
+
+  <dl class="about-info inline-description">
     <dt>Research</dt>
     <dd>
     Relativistic heavy-ion collisions.
@@ -18,7 +21,7 @@
     </dd>
     <dt>Skills</dt>
     <dd>
-    <ul class="inline">
+    <ul class="inline-list">
       <li>computational &amp; statistical modeling</li>
       <li>data science</li>
       <li>Bayesian parameter extraction &amp; uncertainty quantification</li>

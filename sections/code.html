@@ -1,5 +1,7 @@
 <p>
-<a href="{{ github_user_url }}"><i class="fa fa-github extra-space-right"></i>jbernhard</a>
+  <a href="{{ github_user_url }}">
+    <i class="fa fa-github space-right"></i>jbernhard
+  </a>
 </p>
 
 <p>
@@ -7,11 +9,12 @@ As part of my research, I've developed various software for computational modeli
 <a href="https://en.wikipedia.org/wiki/High_energy_nuclear_physics">relativistic heavy-ion collisions</a> and
 <a href="https://en.wikipedia.org/wiki/Quark%E2%80%93gluon_plasma">quark-gluon plasma</a>.
 Here are a few highlights:
+</p>
 
 <div class="row">
   {% for code in codes %}
-    <div class="one-third column card">
-      <h6 class="card-title">{{ code.name }}</h6>
+    <div class="box">
+      <h3 class="box-title">{{ code.name }}</h3>
       <p>{{ code.description.strip() }}</p>
       <ul class="fa-ul">
         <li>

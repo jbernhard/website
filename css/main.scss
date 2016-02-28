@@ -1,33 +1,143 @@
-/* jbernhard custom styles */
+// stylesheet by Jonah Bernhard
 
-@import 'config';
-@import 'skeleton';
+//
+// resets
+//
 
-// global paragraph formatting
-p {
-  text-align: justify;
+// https://css-tricks.com/box-sizing
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 // fix font-awesome list vertical alignment
 // https://github.com/FortAwesome/Font-Awesome/issues/2288
 .fa-li {
-    top: auto;
-    line-height: inherit;
+  top: auto;
+  line-height: inherit;
 }
 
-/*
- * utility classes
- */
+//
+// global styles
+//
 
-.extra-space-right {
-  margin-right: 0.5rem;
+$text-color: hsl(0, 0, 15);
+$theme-hue: 194;
+$link-color: hsl($theme-hue, 75, 35);
+
+body {
+  font-size: 1em;
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+  color: $text-color;
+}
+
+a {
+  color: $link-color;
+  .fa { color: $text-color; }
+  &, .fa { transition: .2s; }
+  &:hover { &, & > .fa { color: lighten($link-color, 10); }}
+}
+
+li {
+  margin-bottom: .3rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+//
+// layout
+//
+
+// bootstrap default breakpoints
+$device-width: (
+  sm: 544px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin larger-than($device) {
+  @media (min-width: map-get($device-width, $device)) {
+    @content;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  @include larger-than('md') {
+    width: 85%;
+    padding: 0;
+  }
+}
+
+$gutter: 2rem;
+
+@include larger-than('md') {
+  .row {
+    display: flex;
+    margin: 0 (-$gutter)/2;
+  }
+
+  .box {
+    padding: 0 $gutter/2;
+    flex: 1;
+  }
+}
+
+//
+// specific element styles
+//
+
+.nav-wrapper {
+  text-align: center;
+  padding: .3rem 0;
+  a {
+    text-decoration: none;
+  }
+  @include larger-than('md') {
+    height: 5.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.nav-button {
+  padding: .2em 0;
+  & + & {
+    margin-left: 1.2em;
+  }
+  font-size: 1.1em;
+  @include larger-than('sm') {
+    font-size: 1.3em;
+  }
+  @include larger-than('lg') {
+    font-size: 1.5em;
+    // transparent border transitions to visible on hover
+    border-bottom: 1px solid hsla(0, 0, 88, 0);
+    &:hover {
+      color: hsl(0, 0, 97);
+      border-bottom: 1px solid hsla(0, 0, 97, 1);
+    }
+  }
 }
 
 .dark-background {
   background-color: hsl($theme-hue, 45, 25);
-  color: grey(90);
-  a {
-    color: grey(90);
+  &, a {
+    color: hsl(0, 0, 88);
   }
 }
 
@@ -35,128 +145,83 @@ p {
   background-color: hsl($theme-hue, 5, 95);
 }
 
-/*
- * page structure
- */
-
-.nav-wrapper {
-  text-align: center;
-  line-height: 2;
-  a {
-    text-decoration: none;
+.banner {
+  font-size: 1.1em;
+  padding: 2rem 0;
+  @include larger-than('sm') {
+    font-size: 1.2em;
   }
-  .nav-title {
-    margin: 0;
+  @include larger-than('md') {
+    display: flex;
+    font-size: 1.25em;
+    padding: 2.5rem 0;
   }
-  nav {
-    a {
-      font-size: 1.6rem;
-      display: inline-block;
-      width: 20%;
-    }
+  @include larger-than('lg') {
+    padding: 3rem 0;
+    font-size: 1.35em;
   }
-
 }
 
-header {
+.banner-box {
   text-align: center;
-  font-size: 1.6rem;
-  @include larger-than('desktop') {
-    font-size: 1.8rem;
+  padding: 1rem;
+  @include larger-than('md') {
+    flex: 1;
   }
-  line-height: 1.4;
-  .fa {
-    margin-bottom: 0.5rem;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-  }
+}
+
+@include larger-than('md') {
+  .banner { display: flex; }
+  .banner-box { flex: 1; }
+}
+
+.banner-list {
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
   li {
-    margin-top: 1rem;
-    margin-bottom: 0;
-  }
-  .column {
-    margin-bottom: 3rem;
-    &:first-child {
-      margin-top: 3rem;
-    }
-    @include if-grid-enabled {
-      &, &:first-child { margin-top: 4rem; }
-      margin-bottom: 4rem;
-    }
+    margin-bottom: .75em;
   }
 }
 
-@include larger-than('tablet') {
-  $nav-height: 5rem;
-
-  .nav-wrapper {
-    height: $nav-height;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-
-    .nav-title {
-      float: left;
-      line-height: $nav-height;
-    }
-
-    nav {
-      float: right;
-      a {
-        width: auto;
-        font-size: 2rem;
-        line-height: $nav-height;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-      a + a {
-        margin-left: 1rem;
-      }
-    }
-  }
-
-  header {
-    margin-top: $nav-height;
+.site-title {
+  margin: 0;
+  font-weight: 300;
+  font-size: 2.5em;
+  @include larger-than('md') {
+    font-size: 2.75em;
   }
 }
 
-.card {
-  line-height: 1.4;
+.section-title {
+  font-weight: 300;
+  font-size: 2em;
+  @include larger-than('md') {
+    font-size: 2.2em;
+  }
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-.card-title {
-  // @at-root &, .card p {
-  //   line-height: 1.4;
-  //   margin-bottom: 0.5rem;
-  // }
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+.box-title {
+  font-weight: 500;
+  font-size: 1.15em;
 }
 
-dl {
-  margin: {
-    top: 0;
-    left: 0;
-    right: 0;
-    // bottom set by skeleton
-  }
+.space-right {
+  margin-right: .4em;
 }
 
-dl.inline {
-  text-align: justify;
+.inline-description {
   dt {
     display: inline;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
+    padding-right: 1em;
   }
   dd {
     display: inline;
-    margin: 0 0 0 1rem;
+    margin: 0;
   }
   dd + dt::before {
     content: "";
@@ -165,9 +230,10 @@ dl.inline {
   }
 }
 
-ul.inline {
+.inline-list {
   display: inline;
   margin: 0;
+  padding: 0;
   list-style: none;
   li {
     display: inline;
@@ -181,29 +247,28 @@ ul.inline {
   }
 }
 
-#self-photo {
+.clear::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.about-photo {
   width: 100%;
-  max-width: 25rem;
+  max-width: 330px;
   margin-bottom: 1rem;
   border-radius: 2px;
   background-clip: border-box;
-  @include if-grid-enabled {
+  @include larger-than('md') {
     float: right;
     margin-left: 1.5rem;
-    width: 40%;
   }
 }
 
-footer {
-  font-size: 85%;
-  border-top: 1px solid grey(75);
-  p {
-    margin-top: 1rem;
-    margin-bottom: 0.75rem;
-    text-align: center;
-  }
-}
-
-.icon + .icon {
-  margin-left: 0.3rem;
+.footer-info {
+  border-top: 1px solid hsl(0, 0, 75);
+  font-size: .9em;
+  padding-top: 1rem;
+  margin-bottom: .75rem;
+  text-align: center;
 }

@@ -13,11 +13,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% for css in [
-    'https://fonts.googleapis.com/css?family=Raleway:400,300,600',
+    'https://fonts.googleapis.com/css?family=Raleway:400,300,500,400italic',
     'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
     'main.min.css',
   ] %}
-    <link rel="stylesheet" href="{{ css }}" type="text/css">
+    <link rel="stylesheet" href="{{ css }}">
   {% endfor %}
 
   <link rel="icon" type="image/png" href="img/favicon.png" sizes="152x152">
@@ -40,24 +40,24 @@
 ] %}
 
 <body>
-  <div class="nav-wrapper u-full-width dark-background">
-    <div class="container">
-      <h2 class="nav-title"><a href="#">{{ full_name }}</a></h2>
-      <nav>
-        {% for title, slug in sections %}
-          <a href="#{{ slug }}">{{ slug }}</a>
-        {% endfor %}
-      </nav>
+  <header>
+    <div class="dark-background">
+      <div class="nav-wrapper container">
+        <h1 class="site-title"><a href="#">{{ full_name }}</a></h1>
+        <nav>
+          {% for title, slug in sections %}
+            <a class="nav-button" href="#{{ slug }}">{{ slug }}</a>
+          {% endfor %}
+        </nav>
+      </div>
     </div>
-  </div>
 
-  <header class="u-full-width light-background">
-    <div class="container">
-      <div class="row">
-        {% for item in header %}
-          <div class="one-third column">
+    <div class="light-background">
+      <div class="banner container">
+        {% for item in banner %}
+          <div class="banner-box">
             <i class="fa {{ item.fa_class }} fa-lg"></i>
-            <ul>
+            <ul class="banner-list">
               {% for line in item.lines %}
                 <li>{{ line }}</li>
               {% endfor %}
@@ -68,26 +68,28 @@
     </div>
   </header>
 
-  <div class="container">
-    {% for title, slug in sections %}
-      <section id="{{ slug }}">
-        <h4>{{ title }}</h4>
+  {% for title, slug in sections %}
+    <section id="{{ slug }}">
+      <div class="container">
+        <h2 class="section-title">{{ title }}</h2>
         {% include 'sections/' ~ slug ~ '.html' %}
-      </section>
-    {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
 
-    <footer>
-      <p>
+  <footer>
+    <div class="container">
+      <p class="footer-info">
       &copy;{{ '%Y'|strftime }} {{ full_name }}<br>
-      <a href="{{ github_user_url }}/website">Built</a> on
-      <a href="http://getskeleton.com">Skeleton</a> with a custom
+      <a href="{{ github_user_url }}/website">Built</a> on a custom
       <a href="http://jinja.pocoo.org">Jinja</a> template<br>
       Icons from <a href="http://fontawesome.io">Font Awesome</a><br>
-      <a class="icon" href="{{ github_user_url }}"><i class="fa fa-github"></i></a>
-      <a class="icon" href="mailto:{{ email_address }}"><i class="fa fa-envelope-o"></i></a>
+      <a href="{{ github_user_url }}"><i class="fa fa-github"></i></a>
+      &nbsp;
+      <a href="mailto:{{ email_address }}"><i class="fa fa-envelope-o"></i></a>
       </p>
-    </footer>
-  </div>
+    </div>
+  </footer>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-header:
+banner:
   - fa_class: fa-graduation-cap
     lines:
       - grad student
@@ -36,16 +36,16 @@ codes:
       of the collision, after the initial condition but before quark-gluon plasma
       formation.
 
-  - name: hic
-    github: Duke-QCD/hic
-    docs:
-      url: http://qcd.phy.duke.edu/hic
-      link_text: qcd.phy.duke.edu/hic
-    description: >
-      Collection of tools for analyzing model simulation data.
-      My idea is to have the heavy-ion physics community contribute to and use
-      this package for common analysis tasks.
-      While it has not taken off, I regularly use it for data analysis in my research.
+# - name: hic
+#   github: Duke-QCD/hic
+#   docs:
+#     url: http://qcd.phy.duke.edu/hic
+#     link_text: qcd.phy.duke.edu/hic
+#   description: >
+#     Collection of tools for analyzing model simulation data.
+#     My idea is to have the heavy-ion physics community contribute to and use
+#     this package for common analysis tasks.
+#     While it has not taken off, I regularly use it for data analysis in my research.
 
 talks:
   - title: Bayesian characterization of the initial state and QGP medium
