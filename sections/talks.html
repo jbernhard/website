@@ -1,5 +1,6 @@
 <p>
-I have presented my primary research project on Bayesian parameter extraction numerous times around the world.
+I have presented my primary research project on Bayesian parameter extraction numerous times around the world
+(see my <a href="https://speakerdeck.com/jbernhard">Speaker Deck</a> for a complete list).
 These are the most recent:
 </p>
 
@@ -10,6 +11,18 @@ These are the most recent:
       <p>{{ talk.description }}</p>
       <ul class="fa-ul">
         <li>
+          <a href="{{ talk.pdf }}">
+            <i class="fa-li fa fa-file-pdf-o"></i>
+            {{ talk.pdf.split('/')[-1] }}
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/{{ talk.github }}">
+            <i class="fa-li fa fa-github"></i>
+            {{ talk.github|replace('/tree/', ':') }}
+          </a>
+        </li>
+        <li>
           <a href="{{ talk.conference.url }}">
             <i class="fa-li fa fa-map-marker"></i>
             {{ talk.conference.name }}, {{ talk.location }}
@@ -18,12 +31,6 @@ These are the most recent:
         <li>
           <i class="fa-li fa fa-calendar"></i>
           {{ talk.date }}
-        </li>
-        <li>
-          <a href="https://github.com/{{ talk.github }}">
-            <i class="fa-li fa fa-github"></i>
-            {{ talk.github|replace('/tree/', ':') }}
-          </a>
         </li>
       </ul>
     </div>

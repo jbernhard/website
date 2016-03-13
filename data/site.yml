@@ -55,6 +55,7 @@ talks:
     location: Kobe, Japan
     date: September 29, 2015
     github: jbernhard/qm2015
+    pdf: https://speakerd.s3.amazonaws.com/presentations/d82b774250ff4fd88151c9a209e2e8b7/jbernhard_2015-09-29_qm.pdf
     description: >
       My poster for Quark Matter 2015, the preeminent conference in heavy-ion physics.
       Presents an updated Bayesian analysis with more parameters and improved physics models,
@@ -67,6 +68,7 @@ talks:
     location: Brookhaven National Lab
     date: June 9, 2015
     github: jbernhard/mtd-paper/tree/aum
+    pdf: https://speakerd.s3.amazonaws.com/presentations/52fe903f174f46738eeee1b8df75835b/jbernhard_2015-06-09_bnl.pdf
     description: >
       Presentation of results from my paper
       <i>Quantifying properties of hot and dense QCD matter
