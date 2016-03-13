@@ -4,6 +4,7 @@
 {% set full_name = 'Jonah Bernhard' %}
 {% set github_user_url = 'https://github.com/jbernhard' %}
 {% set email_address = 'jonah.bernhard@gmail.com'|obfuscate %}
+{% set plotly_user = 'jonah.bernhard' %}
 
 <head>
   <meta charset="utf-8">
@@ -22,6 +23,9 @@
 
   <link rel="icon" type="image/png" href="img/favicon.png" sizes="152x152">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="site.min.js" async></script>
+
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -38,6 +42,24 @@
   ('Talks &amp; posters', 'talks'),
   ('About', 'about'),
 ] %}
+
+{% macro media(type, arg) %}
+  {% if type == 'streamable' %}
+    <div class="video player">
+      <video class="full-width" loop muted
+        poster="https://cdn.streamable.com/image/{{ arg }}_first.jpg">
+        <source src="https://cdn.streamable.com/video/mp4/{{ arg }}.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <i class="fa fa-play play-button"></i>
+    </div>
+  {% elif type == 'plotly' %}
+    <div class="plotly">
+      <img class="full-width"
+        src="https://plot.ly/~{{ plotly_user }}/{{ arg }}.png">
+    </div>
+  {% endif %}
+{% endmacro %}
 
 <body>
   <header>

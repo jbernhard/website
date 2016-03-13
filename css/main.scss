@@ -53,6 +53,19 @@ p {
   margin-bottom: 1em;
 }
 
+figure {
+  margin: {
+    top: 1.5rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+figcaption {
+  font-style: italic;
+}
+
 //
 // layout
 //
@@ -208,8 +221,33 @@ $gutter: 2rem;
   font-size: 1.15em;
 }
 
-.space-right {
-  margin-right: .4em;
+.plotly {
+  position: relative;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.player {
+  position: relative;
+  color: hsla(0, 0%, 100%, .6);
+  cursor: pointer;
+  transition: .2s;
+  &:hover {
+    color: hsla(0, 0%, 100%, .8);
+  }
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
 }
 
 .inline-description {
@@ -247,12 +285,6 @@ $gutter: 2rem;
   }
 }
 
-.clear::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .about-photo {
   width: 100%;
   max-width: 330px;
@@ -271,4 +303,22 @@ $gutter: 2rem;
   padding-top: 1rem;
   margin-bottom: .75rem;
   text-align: center;
+}
+
+//
+// utilities
+//
+
+.space-right {
+  margin-right: .4em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.clear::after {
+  content: "";
+  display: table;
+  clear: both;
 }

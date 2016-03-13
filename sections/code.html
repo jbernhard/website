@@ -20,16 +20,20 @@ Here are a few highlights:
         <li>
           <a href="https://github.com/{{ code.github }}">
             <i class="fa-li fa fa-github"></i>
-            {{ code.github|replace('/', '/<wbr>') }}
+            {{ code.github }}
           </a>
         </li>
         <li>
           <a href="{{ code.docs.url }}">
             <i class="fa-li fa fa-book"></i>
-            {{ code.docs.link_text|replace('/', '/<wbr>') }}
+            {{ code.docs.link_text }}
           </a>
         </li>
       </ul>
+      <figure>
+        <figcaption>{{ code.fig.caption.strip() }}:</figcaption>
+        {{ media(code.fig.type, code.fig.arg) }}
+      </figure>
     </div>
   {% endfor %}
 </div>

@@ -3,8 +3,9 @@ builddir ?= build
 index = index.html
 html = $(builddir)/$(index)
 css = $(builddir)/main.min.css
+js = $(builddir)/site.min.js
 img = $(builddir)/img
-targets = $(html) $(css) $(img)
+targets = $(html) $(css) $(js) $(img)
 
 all: $(builddir) $(targets)
 
@@ -20,6 +21,9 @@ $(css): css/*css
 		postcss \
 			--use autoprefixer --autoprefixer.browsers "last 2 versions, > 5%" \
 			--use cssnano > $(css)
+
+$(js): js/*.js
+	uglifyjs js/*.js --compress --mangle > $(js)
 
 $(img):
 	@rsync -rui --delete --info=name1,del img $(builddir)/
