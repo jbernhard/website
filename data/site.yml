@@ -21,7 +21,7 @@ codes:
       url: http://qcd.phy.duke.edu/trento
       link_text: qcd.phy.duke.edu/trento
     description: >
-      Model for the initial conditions of heavy-ion collisions.
+      A new model for the initial conditions of heavy-ion collisions.
       The name is an homage to Trento, Italy,
       where my fellow Duke student Scott Moreland and I formulated the idea
       (it also stands for <i>Reduced Thickness Event-by-event Nuclear Topology</i>).
@@ -38,13 +38,13 @@ codes:
       url: https://github.com/Duke-QCD/freestream#readme
       link_text: readme
     description: >
-      Implementation of free-streaming for the &quot;pre-equilibrium&quot; stage
-      of the collision, after the initial condition but before quark-gluon plasma
-      formation.
+      Modern implementation of free streaming&#58; a simple, common model for
+      the brief period after the initial condition but before quark-gluon plasma
+      formation (when hydrodynamics takes over).
     fig:
       caption: >
-        Animation of free streaming a T<sub>R</sub>ENTo event for 5 fm/c
-        (approx. 10<sup>-23</sup> seconds)
+        Animation of free streaming a T<sub>R</sub>ENTo event for 5&nbsp;fm/c
+        (approx. <span class="nowrap">10<sup>-23</sup></span> seconds)
       type: streamable
       arg: sn7e
 
@@ -70,8 +70,10 @@ talks:
     pdf: https://speakerd.s3.amazonaws.com/presentations/d82b774250ff4fd88151c9a209e2e8b7/jbernhard_2015-09-29_qm.pdf
     description: >
       My poster for Quark Matter 2015, the preeminent conference in heavy-ion physics.
-      Presents an updated Bayesian analysis with more parameters and improved physics models,
-      including our initial condition model T<sub>R</sub>ENTo.
+      Presents an analysis similar to my first study but with more parameters
+      and improved physics models, including our initial condition model
+      T<sub>R</sub>ENTo.
+      We'll publish a paper based on this work in spring 2016.
 
   - title: Bayesian methods for constraining initial conditions and viscosity
     conference:
@@ -84,5 +86,4 @@ talks:
     description: >
       Presentation of results from my paper
       <i>Quantifying properties of hot and dense QCD matter
-      through systematic model-to-data comparison</i>
-
+      through systematic model-to-data comparison</i>.
