@@ -179,7 +179,6 @@ $gutter: 2rem;
 }
 
 .banner {
-  @include heading;
   font-size: 1.1em;
   padding: 2rem 0;
   @include larger-than('sm') {
@@ -204,6 +203,7 @@ $gutter: 2rem;
 }
 
 .banner-list {
+  @include heading;
   list-style: none;
   margin: 1em 0 0;
   padding: 0;
