@@ -12,7 +12,7 @@ banner:
   - fa_class: fa-code
     lines:
       - computational modeling
-      - Bayesian parameter extraction
+      - Bayesian parameter estimation
 
 codes:
   - name: T<sub>R</sub>ENTo
