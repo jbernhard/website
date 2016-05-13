@@ -10,12 +10,14 @@ See also my <a href="https://inspirehep.net/search?p=exactauthor%3AJ.E.Bernhard.
       <p>{{ paper.author }}</p>
       <p>{{ paper.description }}</p>
       <ul class="fa-ul">
+        {% if paper.doi %}
         <li>
           <a href="http://dx.doi.org/{{ paper.doi }}">
             <i class="fa-li fa fa-file-text-o"></i>
             {{ paper.journal }} {{ paper.volume }} ({{ paper.year }})
           </a>
         </li>
+        {% endif %}
         <li>
           <a href="http://arxiv.org/pdf/{{ paper.eprint }}.pdf">
             <i class="fa-li fa fa-file-pdf-o"></i>

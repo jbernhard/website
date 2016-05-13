@@ -70,10 +70,9 @@ talks:
     pdf: https://speakerd.s3.amazonaws.com/presentations/d82b774250ff4fd88151c9a209e2e8b7/jbernhard_2015-09-29_qm.pdf
     description: >
       My poster for Quark Matter 2015, the preeminent conference in heavy-ion physics.
-      Presents an analysis similar to my first study but with more parameters
-      and improved physics models, including our initial condition model
-      T<sub>R</sub>ENTo.
-      We'll publish a paper based on this work in spring 2016.
+      Presents results from the above paper
+      <i>Applying Bayesian parameter estimation to relativistic heavy-ion collisions&#58;
+      simultaneous characterization of the initial state and quark-gluon plasma medium</i>.
 
   - title: Bayesian methods for constraining initial conditions and viscosity
     conference:
