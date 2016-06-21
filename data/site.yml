@@ -60,6 +60,19 @@ codes:
 #     While it has not taken off, I regularly use it for data analysis in my research.
 
 talks:
+  - title: Precision extraction of QGP properties with quantified uncertainties, part II&#58; methodology and results
+    conference:
+      name: Bayesian methods in nuclear physics
+      url: http://www.int.washington.edu/PROGRAMS/16-2a
+    location: University of Washington, Seattle
+    date: June 15, 2016
+    github: jbernhard/qm2015/tree/int2016
+    pdf: https://speakerd.s3.amazonaws.com/presentations/5fcb0a7f0f2c4c04bdf64def0214d7ed/jbernhard_2016-06-15_int.pdf
+    description: >
+      Overview of my research and recent results for a broad audience of statisticians and nuclear physicists.
+      This was a shared talk; Steffen Bass presented the
+      <a href="http://www.int.washington.edu/talks/WorkShops/int_16_2a/People/Bernhard_J/Bernhard_intro.pdf">introduction</a>.
+
   - title: Bayesian characterization of the initial state and QGP medium
     conference:
       name: Quark Matter 2015
@@ -73,16 +86,3 @@ talks:
       Presents results from the above paper
       <i>Applying Bayesian parameter estimation to relativistic heavy-ion collisions&#58;
       simultaneous characterization of the initial state and quark-gluon plasma medium</i>.
-
-  - title: Bayesian methods for constraining initial conditions and viscosity
-    conference:
-      name: 2015 RHIC &amp; AGS Users' Meeting
-      url: https://www.bnl.gov/aum2015
-    location: Brookhaven National Lab
-    date: June 9, 2015
-    github: jbernhard/mtd-paper/tree/aum
-    pdf: https://speakerd.s3.amazonaws.com/presentations/52fe903f174f46738eeee1b8df75835b/jbernhard_2015-06-09_bnl.pdf
-    description: >
-      Presentation of results from my paper
-      <i>Quantifying properties of hot and dense QCD matter
-      through systematic model-to-data comparison</i>.
