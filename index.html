@@ -43,20 +43,21 @@
   ('About', 'about'),
 ] %}
 
-{% macro media(type, arg) %}
-  {% if type == 'streamable' %}
+{% macro media(fig) %}
+  {% if fig.type == 'streamable' %}
     <div class="video player">
       <video class="full-width" loop muted
-        poster="https://cdn.streamable.com/image/{{ arg }}_first.jpg">
-        <source src="https://cdn.streamable.com/video/mp4/{{ arg }}.mp4" type="video/mp4">
+        poster="https://cdn-{{ fig.cdn }}.streamable.com/image/{{ fig.id }}_first.jpg?token={{ fig.jpgtoken }}">
+        <source type="video/mp4"
+          src="https://cdn-{{ fig.cdn }}.streamable.com/video/mp4/{{ fig.id }}.mp4?token={{ fig.mp4token }}">
         Your browser does not support HTML5 video.
       </video>
       <i class="fa fa-play play-button"></i>
     </div>
-  {% elif type == 'plotly' %}
+  {% elif fig.type == 'plotly' %}
     <div class="plotly">
       <img class="full-width"
-        src="https://plot.ly/~{{ plotly_user }}/{{ arg }}.png">
+        src="https://plot.ly/~{{ plotly_user }}/{{ fig.id }}.png">
     </div>
   {% endif %}
 {% endmacro %}
