@@ -19,8 +19,9 @@ $(css): css/*css
 	sass --cache-location $(XDG_RUNTIME_DIR)/sass-cache css/main.scss | \
 		cat css/normalize.css - | \
 		postcss \
+			--no-map \
 			--use autoprefixer --autoprefixer.browsers "last 2 versions, > 5%" \
-			--use cssnano > $(css)
+			--use cssnano > $(css) 2> /dev/null
 
 $(js): js/*.js
 	uglifyjs js/*.js --compress --mangle > $(js)
