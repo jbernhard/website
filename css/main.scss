@@ -33,6 +33,7 @@ $link-color: hsl($theme-hue, 72, 35);
 @mixin bold { font-weight: 500; }
 
 body {
+  margin: 0;
   font-size: 1em;
   line-height: 1.5;
   font-weight: 400;
