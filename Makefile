@@ -16,7 +16,7 @@ $(html): $(index) sections/*.html data/*
 	./render-template > $(html)
 
 $(css): css/*css
-	sass --cache-location $(XDG_RUNTIME_DIR)/sass-cache css/main.scss | \
+	sass css/main.scss | \
 		cat css/normalize.css - | \
 		postcss \
 			--no-map \
