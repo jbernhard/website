@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import jinja2
+
+
+def obfuscate(string):
+    """
+    Encode a string to html character entities.
+    For email address obfuscation.
+
+    """
+    return ''.join(['&#{:d};'.format(ord(i)) for i in string])
+
+
+def main():
+    env = jinja2.Environment(
+        loader=jinja2.FileSystemLoader('.'),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    env.filters.update(obfuscate=obfuscate)
+
+    template = env.get_template('index.html')
+
+    # extract css background color to use as html meta theme-color
+    with open('css/main.scss', 'r') as f:
+        prefix = '$background-color: '
+        for l in f:
+            if l.startswith(prefix):
+                theme_color = l[len(prefix):-2]
+                break
+
+    print(template.render(theme_color=theme_color))
+
+
+if __name__ == "__main__":
+    main()

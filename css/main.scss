@@ -1,0 +1,114 @@
+// stylesheet by Jonah Bernhard
+
+// https://css-tricks.com/box-sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+$background-color: hsl(210, 15%, 8%);
+$text-color: hsl(0, 0%, 75%);
+$link-color: hsl(210, 65%, 75%);
+$link-color-hover: lighten($link-color, 10);
+
+body {
+  margin: 0;
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.25;
+  font: {
+    size: 1em;
+    family: 'Raleway', sans-serif;
+    weight: 400;
+  }
+}
+
+footer {
+  margin: 3em 0;
+}
+
+h1, h2 {
+  font-weight: 400;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.center {
+  text-align: center;
+}
+
+.serif {
+  font-family: 'Lora', serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
+@each $name, $em in (lg, 1.25), (xl, 1.5), (xxl, 2) {
+  .font-#{$name} {
+    font-size: #{$em}em;
+  }
+}
+
+@each $name, $em in (sm, .5), (md, 1), (lg, 2) {
+  .tmargin-#{$name} {
+    margin-top: #{$em}em;
+  }
+}
+
+.text-color-bg {
+  color: $background-color;
+}
+
+.container {
+  margin-top: 10vh;
+  padding: 0 .5em;
+}
+
+.button {
+  margin: 0 .75em;
+  white-space: nowrap;
+
+  // transparent border transitions to visible on hover
+  border-bottom: 1px solid transparentize($link-color, 1);
+  &:hover {
+    border-bottom: 1px solid $link-color-hover;
+    & > i, & > .button-text  {
+      color: $link-color-hover;
+    }
+  }
+
+  // & > .fa-external-link {
+  //   font-size: .5em;
+  //   margin-left: .25em;
+  //   vertical-align: middle;
+  // }
+}
+
+.button-icon {
+  margin-right: .2em;
+}
+
+.button-text {
+  color: $link-color;
+}
+
+#photo {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 50%;
+}
+
+
+.circle-link {
+  margin: 0 .25em;
+  &:hover {
+    color: $link-color-hover;
+  }
+}
