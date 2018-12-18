@@ -1,25 +1,12 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 
-{% set name = 'Jonah Bernhard' %}
-{% set title = name ~ ', PhD' %}
+{% block title %}{{ title }}{% endblock %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="{{ theme_color }}">
-  <meta name="description" content="{{ name }} is a data scientist and computational physicist.">
-  <meta name="author" content="{{ name }}">
-
-  <title>{{ title }}</title>
-
-  <link rel="icon" sizes="192x192" href="img/icon.png">
-  <link rel="apple-touch-icon" href="img/icon.png">
-
+{% block head %}
   <link rel="stylesheet" href="style.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400|Lora:italic">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-NJXGk7R+8gWGBdutmr+/d6XDokLwQhF1U3VA7FhvBDlOq7cNdI69z7NQdnXxcF7k" crossorigin="anonymous">
-</head>
+{% endblock %}
 
 {% macro button(text, icon, url, icon_type='l') %}
   <a href="{{ url }}" class="button">
@@ -29,7 +16,7 @@
   </a>
 {% endmacro %}
 
-<body>
+{% block body %}
   <main role="main" class="container center">
     <img src="img/photo.jpg" alt="{{ name }}" id="photo">
     <h1 class="font-xxl tmargin-md">{{ title }}</h1>
@@ -41,12 +28,12 @@
     </p>
 
     <p class="font-xl tmargin-lg">
-      {{ button('Resume', 'file-pdf', 'https://drive.google.com/uc?id=1DaC3fVSSWYOhfE9kDkuDwBAcYIQpvuMK') }}
+      {{ button('Resume', 'file-pdf', extlinks['resume']) }}
     </p>
 
     <p class="font-lg tmargin-md">
-      {{ button('Scientific papers', 'file-alt', 'https://inspirehep.net/search?p=exactauthor%3AJonah.E.Bernhard.1') }}
-      {{ button('Presentations', 'presentation', 'https://speakerdeck.com/jbernhard') }}
+      {{ button('Scientific papers', 'file-alt', extlinks['papers']) }}
+      {{ button('Presentations', 'presentation', extlinks['talks']) }}
     </p>
   </main>
 
@@ -64,12 +51,4 @@
     </a>
     {% endfor %}
   </footer>
-
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-49493677-3', 'auto'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-</body>
-
-</html>
+{% endblock %}

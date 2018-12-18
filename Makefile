@@ -1,18 +1,21 @@
 builddir ?= build
 
-index = index.html
-html = $(builddir)/$(index)
+index = $(builddir)/index.html
+redirects = $(addprefix $(builddir)/, $(addsuffix .html,resume talks papers))
 css = $(builddir)/style.min.css
 img = $(builddir)/img
-targets = $(html) $(css) $(img)
+targets = $(index) $(redirects) $(css) $(img)
 
 all: $(builddir) $(targets)
 
 $(builddir):
 	mkdir -p $(builddir)
 
-$(html): $(index)
-	./render-template > $(html)
+$(index): index.html base.html
+	./render-template $< > $@
+
+$(redirects): $(builddir)/%.html: redirect.html base.html
+	./render-template $< $* > $@
 
 $(css): css/*css
 	sass css/main.scss | \
@@ -20,7 +23,7 @@ $(css): css/*css
 		postcss \
 			--no-map \
 			--use autoprefixer --autoprefixer.browsers "last 2 versions, > 5%" \
-			--use cssnano > $(css)
+			--use cssnano > $@
 
 $(img):
 	@cp -rluv img $(builddir)

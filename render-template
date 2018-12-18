@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import jinja2
 
 
@@ -20,17 +21,47 @@ def main():
     )
     env.filters.update(obfuscate=obfuscate)
 
-    template = env.get_template('index.html')
+    try:
+        template_file = sys.argv[1]
+    except IndexError:
+        print(f'usage: {sys.argv[0]} template_file [args]', file=sys.stderr)
+        sys.exit(1)
+
+    template = env.get_template(template_file)
+
+    context = {}
 
     # extract css background color to use as html meta theme-color
     with open('css/main.scss', 'r') as f:
         prefix = '$background-color: '
         for l in f:
             if l.startswith(prefix):
-                theme_color = l[len(prefix):-2]
+                context['theme_color'] = l[len(prefix):-2]
                 break
 
-    print(template.render(theme_color=theme_color))
+    extlinks = dict(
+        resume='https://drive.google.com/uc?id=1DaC3fVSSWYOhfE9kDkuDwBAcYIQpvuMK',
+        papers='https://inspirehep.net/search?p=exactauthor%3AJonah.E.Bernhard.1',
+        talks='https://speakerdeck.com/jbernhard',
+    )
+
+    if template_file == 'redirect.html':
+        try:
+            key = sys.argv[2]
+        except IndexError:
+            print(
+                'must provide redirect url key: '
+                f'{sys.argv[0]} {sys.argv[1]} ' +
+                '|'.join(extlinks).join('{}'),
+                file=sys.stderr
+            )
+            sys.exit(1)
+
+        context['redirect_url'] = extlinks[key]
+    else:
+        context['extlinks'] = extlinks
+
+    print(template.render(context))
 
 
 if __name__ == "__main__":

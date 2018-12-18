@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+{% set name = 'Jonah Bernhard' %}
+{% set title = name ~ ', PhD' %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="{{ theme_color }}">
+  <meta name="description" content="{{ name }} is a data scientist and computational physicist.">
+  <meta name="author" content="{{ name }}">
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <link rel="icon" sizes="192x192" href="img/icon.png">
+  <link rel="apple-touch-icon" href="img/icon.png">
+
+  {% block head %}{% endblock %}
+</head>
+
+<body>
+  {% block body %}{% endblock %}
+
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-49493677-3', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
