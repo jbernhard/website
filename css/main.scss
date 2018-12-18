@@ -24,42 +24,8 @@ body {
   }
 }
 
-footer {
-  margin: 3em 0;
-}
-
-h1, h2 {
-  font-weight: 400;
-}
-
-a {
-  color: $text-color;
-  text-decoration: none;
-  transition: .2s;
-}
-
 .center {
   text-align: center;
-}
-
-.serif {
-  font-family: 'Lora', serif;
-}
-
-.italic {
-  font-style: italic;
-}
-
-@each $name, $em in (lg, 1.25), (xl, 1.5), (xxl, 2) {
-  .font-#{$name} {
-    font-size: #{$em}em;
-  }
-}
-
-@each $name, $em in (sm, .5), (md, 1), (lg, 2) {
-  .tmargin-#{$name} {
-    margin-top: #{$em}em;
-  }
 }
 
 .text-color-bg {
@@ -68,12 +34,72 @@ a {
 
 .container {
   margin-top: 10vh;
-  padding: 0 .5em;
+}
+
+@mixin font-size($size) {
+  font-size: #{map-get(('lg': 1.25, 'xl': 1.5, 'xxl': 2), $size)}em;
+}
+
+@mixin vspace($rem) {
+  margin-top: #{$rem}rem;
+}
+
+@mixin hpad {
+  padding: 0 .5rem;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+h1, h2 {
+  font-weight: 400;
+  @include hpad;
+}
+
+h1 {
+  @include font-size('xxl');
+  @include vspace(2);
+}
+
+h2 {
+  @include font-size('xl');
+  @include vspace(1);
+}
+
+p {
+  @include vspace(1);
+}
+
+.emph {
+  @include vspace(2);
+  @include font-size('lg');
+  @include hpad;
+  font: {
+    family: 'Lora', serif;
+    style: italic;
+  }
+}
+
+#photo {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 50%;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+  transition: .2s;
 }
 
 .button {
-  margin: 0 .75em;
-  white-space: nowrap;
+  @include font-size('xl');
+  @include vspace(1);
+  display: inline-block;
+  @each $side in left, right {
+    margin-#{$side}: .5rem;
+  }
 
   // transparent border transitions to visible on hover
   border-bottom: 1px solid transparentize($link-color, 1);
@@ -99,15 +125,12 @@ a {
   color: $link-color;
 }
 
-#photo {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 50%;
+footer {
+  margin: 3rem 0;
 }
 
-
 .circle-link {
-  margin: 0 .25em;
+  margin: 0 .25rem;
   &:hover {
     color: $link-color-hover;
   }

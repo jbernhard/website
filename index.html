@@ -8,32 +8,32 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-NJXGk7R+8gWGBdutmr+/d6XDokLwQhF1U3VA7FhvBDlOq7cNdI69z7NQdnXxcF7k" crossorigin="anonymous">
 {% endblock %}
 
-{% macro button(text, icon, url, icon_type='l') %}
-  <a href="{{ url }}" class="button">
-    <i class="fa{{ icon_type }} fa-{{ icon }} button-icon"></i>
-    <span class="button-text">{{ text }}</span>
-    {# <i class="far fa-external-link"></i> #}
-  </a>
-{% endmacro %}
-
 {% block body %}
   <main role="main" class="container center">
     <img src="img/photo.jpg" alt="{{ name }}" id="photo">
-    <h1 class="font-xxl tmargin-md">{{ title }}</h1>
-    <h2 class="font-xl tmargin-sm">Data scientist&ensp;+&ensp;Computational physicist</h2>
+    <h1>{{ title }}</h1>
+    <h2>Data&nbsp;scientist&ensp;+&ensp;Computational&nbsp;physicist</h2>
 
-    <p class="font-lg serif italic tmargin-lg">
+    <p class="emph">
       I build and optimize models.<br>
       I design and implement effective solutions to complex problems.
     </p>
 
-    <p class="font-xl tmargin-lg">
-      {{ button('Resume', 'file-pdf', extlinks['resume']) }}
-    </p>
-
-    <p class="font-lg tmargin-md">
-      {{ button('Scientific papers', 'file-alt', extlinks['papers']) }}
-      {{ button('Presentations', 'presentation', extlinks['talks']) }}
+    <p>
+    {% for text, icon, key in [
+      ('Resume', 'file-pdf', 'resume'),
+      ('Scientific papers', 'file-alt', 'papers'),
+      ('Presentations', 'presentation', 'talks'),
+    ] %}
+      <a href="{{ extlinks[key] }}" class="button">
+        <i class="fal fa-{{ icon }} button-icon"></i>
+        <span class="button-text">{{ text }}</span>
+        {# <i class="far fa-external-link"></i> #}
+      </a>
+      {% if loop.first %}
+        <br>
+      {% endif %}
+    {% endfor %}
     </p>
   </main>
 
