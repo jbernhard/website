@@ -131,6 +131,7 @@ footer {
 
 .circle-link {
   margin: 0 .25rem;
+  color: darken($text-color, 5);
   &:hover {
     color: $link-color-hover;
   }
